@@ -4,13 +4,16 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[id])
+    @movie = Movie.find(params[:id])
   end
 
   def new_form
   end
 
   def create_row
+    #update so it is creating a row for movies
+    @movie = Movie.new
+    
     @movie.title = params[:the_title]
     @movie.year = params[:the_year]
     @movie.duration = params[:the_duration]
@@ -19,7 +22,9 @@ class MoviesController < ApplicationController
     @movie.director_id = params[:the_director_id]
 
     @movie.save
-
+    
+    # redirect_to("/show/")
+    
     render("show")
   end
 
