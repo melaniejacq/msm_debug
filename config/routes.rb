@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  #Melanie's MSM debug
+  
   # Route for bare domain:
   get('/', { :controller => 'movies', :action => 'index' })
 
